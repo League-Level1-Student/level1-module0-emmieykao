@@ -21,10 +21,10 @@ public class BodyPartQuiz {
 	// package,or if you prefer, get celebrity photos from the Internet,
 	// place them in the recipe package(body_part_quiz), and change the names below.
 
-	String firstImage = "src/_05_body_part_quiz/arnold.jpeg";
-	String secondImage = "src/_05_body_part_quiz/leonardo.jpeg";
-	String thirdImage = "src/_05_body_part_quiz/morgan.jpeg";
-	String fourthImage = "src/_05_body_part_quiz/jack.jpeg";
+	String firstImage = "src/_05_body_part_quiz/pikachu.png";
+	String secondImage = "src/_05_body_part_quiz/squirtle.png";
+	String thirdImage = "src/_05_body_part_quiz/charmander.png";
+	String fourthImage = "src/_05_body_part_quiz/dratini.png";
 
 	JFrame window = new JFrame();
 	JPanel panel = new JPanel();
@@ -42,7 +42,7 @@ public class BodyPartQuiz {
 
 		// 3. Change the size of the window so that you can only see part of the
 		// image.
-		window.setSize(500, 500);
+		window.setSize(300,300);
 
 		showNextImage();
 
@@ -51,25 +51,64 @@ public class BodyPartQuiz {
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-
+int score = 0;
 		// 2. Set the size of the window in the initializeGui() method 
-
+initializeGui();
 		// 4. Ask the user who this person is and store their answer
-		String guess = JOptionPane.showInputDialog("who is this?");
+		String guess = JOptionPane.showInputDialog("Which pokemon is this?");
 
 		// 5. Check their answer. If they guessed correctly:
 		// -- Tell them they are right and increase the score by 1
-
+if (guess.equals("pikachu")) {
+	JOptionPane.showMessageDialog(null, "You are correct!");
+	score++;
+}
 		// 6. Otherwise:
 		// -- Tell them they are wrong and who the person is
-
+else {
+	JOptionPane.showMessageDialog(null, "Nope! It's pikachu!");
+}
 		// 7. Use the showNextImage() method below to get the next image
 		showNextImage();
 
 		// 8. .... repeat 4-7 for all your images.....
-
+		String guess2 = JOptionPane.showInputDialog("Which pokemon is this?");
+		if (guess2.equals("squirtle")) {
+			JOptionPane.showMessageDialog(null, "You are correct!");
+			score++;
+		}
+				// 6. Otherwise:
+				// -- Tell them they are wrong and who the person is
+		else {
+			JOptionPane.showMessageDialog(null, "Nope! It's squirtle!");
+		}
+		showNextImage();
+		
+		String guess3 = JOptionPane.showInputDialog("Which pokemon is this?");
+		if (guess3.equals("charmander")) {
+			JOptionPane.showMessageDialog(null, "You are correct!");
+			score++;
+		}
+				// 6. Otherwise:
+				// -- Tell them they are wrong and who the person is
+		else {
+			JOptionPane.showMessageDialog(null, "Nope! It's charmander!");
+		}
+		
+		showNextImage();
+		
+		String guess4 = JOptionPane.showInputDialog("Bonus Question: Which pokemon is this?");
+		if (guess4.equals("dratini")) {
+			JOptionPane.showMessageDialog(null, "You are correct!");
+			score++;
+		}
+				// 6. Otherwise:
+				// -- Tell them they are wrong and who the person is
+		else {
+			JOptionPane.showMessageDialog(null, "Nope! It's dratini!");
+		}
 		// 9. Show them their current score
-
+JOptionPane.showMessageDialog(null, "Your total score is: " + score + "!");
 	}
 
 	public void showNextImage() {
