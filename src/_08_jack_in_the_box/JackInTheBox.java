@@ -1,27 +1,38 @@
 package _08_jack_in_the_box;
 
+import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 
 public class JackInTheBox implements ActionListener {
+
 public void showButton(){
 	JFrame frame=new JFrame();
 	frame.setVisible(true);
 	JButton button= new JButton();
+	button.setText("surprise");
 	frame.add(button);
 	frame.pack();
 	button.addActionListener(this);
 }
-
+int x=5;
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
-	int x=3;
+	
 	x--;
-	if(x==0) {
+	if(x==0) {showPicture("jackInTheBox.png");
+	playSound("homer-woohoo.wav");}
+	}
 		private void showPicture(String fileName) { 
 		     try {
 		          JLabel imageLabel = createLabelImage(fileName);
@@ -34,7 +45,33 @@ public void actionPerformed(ActionEvent e) {
 		          e.printStackTrace();
 		     }
 		}
-	}
 	
+	
+
+@SuppressWarnings({ "unused", "deprecation" })
+private void playSound(String soundFile) { 
+    try {
+         AudioClip sound = JApplet.newAudioClip(getClass().getResource(soundFile));
+         sound.play();
+    } catch (Exception e) {
+         e.printStackTrace();}
+    }
+
+private JLabel createLabelImage(String fileName) {
+     try {
+          URL imageURL = getClass().getResource(fileName);
+          if (imageURL == null) {
+               System.err.println("Could not find image " + fileName);
+               return new JLabel();
+          } else {
+               Icon icon = new ImageIcon(imageURL);
+               JLabel imageLabel = new JLabel(icon);
+               return imageLabel;
+          }
+     } catch (Exception e) {
+          System.err.println("Could not find image " + fileName);
+          return new JLabel();
+     }
 }
 }
+
