@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class PhotoQuiz {
 
@@ -116,4 +117,5 @@ JOptionPane.showMessageDialog(component, "Your total score is " + score + "! Tha
 	// *14. add scoring to your quiz
 	// *15. make something happen when mouse enters image
 	// (imageComponent.addMouseMotionListener())
+
 }

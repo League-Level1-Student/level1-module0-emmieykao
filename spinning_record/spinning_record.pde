@@ -10,17 +10,20 @@ minim = new Minim(this);
 song = minim.loadFile("awesomeTrack.mp3", 512);
 }
 void draw(){
-image(pictureofRecord, 0, 0);
 
 if(mousePressed){
-rotateImage(pictureofRecord, 60);
+rotateImage(pictureofRecord, -30);
+
+
 song.play();
 }
 else{
 song.pause();}
+image(pictureofRecord, 0, 0);
 }
+
 void rotateImage(PImage image, int amountToRotate) {
         translate(width/2, height/2);
-        rotate(amountToRotate*TWO_PI/360);
+        rotate(amountToRotate*TWO_PI/90);
         translate(-image.width/2, -image.height/2);
     }
